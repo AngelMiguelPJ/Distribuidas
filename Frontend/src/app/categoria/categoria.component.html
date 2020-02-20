@@ -1,0 +1,39 @@
+<!--GRID-->
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <!---CARD -->
+
+      <div class="card mt-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">LISTADO DE Categorias</h5>
+
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-action" 
+            *ngFor="let categorias of arregloCategorias"
+            (click)="editarCategoria(categorias)">
+              {{categorias.nombre}}
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+
+      <div class="card mt-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">INGRESO DE CATEGORIAS</h5>
+          <div class="form-group">
+            <input type="text"[(ngModel)]="categoria.nombre" class="form-control" placeholder="Ingrese un Nombre">
+          </div>
+        </div>
+        <button class="btn btn-primary" (click)="agregarCategoria()">Agregar</button>
+        <button class="btn btn-danger" *ngIf="categoria.nombre !== '' " (click)="eliminarDatos()">Eliminar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
